@@ -26,8 +26,9 @@ export default function Dropdown({orderBy, setOrderBy}: Props) {
   }
   
   return (
-  <>
-    <select value={selected} onChange={handleChange} id="order" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <div className="m-4">
+    <label htmlFor="order" className="m-2">Select an option:</label>
+    <select value={selected} onChange={handleChange} id="order" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-0 focus:border-teal block w-full p-2.5">
       {options.map(option => (
           <option key={option.value} value={option.value}>
             {option.text}
@@ -35,5 +36,5 @@ export default function Dropdown({orderBy, setOrderBy}: Props) {
         ))}
   
     </select>
-  </>)
+  </div>)
 }

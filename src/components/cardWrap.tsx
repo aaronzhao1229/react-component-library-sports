@@ -36,17 +36,15 @@ export default function CardWrap() {
         }
     }
 
-
 return (
   <>
-  {loading ? <LoadingComponent /> : 
-  <>
-    <Dropdown orderBy={orderBy} setOrderBy={setOrderBy}/>
-    <Card title="test" description="test description"/>
-    <button onClick={refreshSports}>Refresh Sports</button>
-  </>
-  }
-  
+      {loading ? <LoadingComponent /> : 
+      <div className="flex items-center justify-center flex-col">
+        <Dropdown orderBy={orderBy} setOrderBy={setOrderBy}/>
+        <Card title="test" description="test description"/>
+        <button className='text-white bg-teal font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2' onClick={refreshSports}>Refresh Sports</button>
+      </div>
+      }
   </>
        
 )
