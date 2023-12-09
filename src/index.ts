@@ -1,1 +1,1 @@
-export { Card } from "./components/card";
+export { SportsUI } from "./components/SportsUI";
