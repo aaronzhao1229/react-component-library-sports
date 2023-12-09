@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ContentRepository } from "../api/ContentRepository";
 import { Sport } from "src/models/sports";
+import { useAppSelector } from "src/store/configureStore";
 
 type CardProps = {
   title: string;
@@ -10,10 +11,8 @@ type CardProps = {
 const initial : Sport[] = [{name: '', description: ''}]
 
 export const Card = ({ title, description }: CardProps) => {
-  const [sports, setSports] = useState<Sport[]>(initial)
-  const contentRepo = new ContentRepository()
-  // contentRepo.getFeaturedSports().then(sportsData => setSports(sportsData))
-
+  const sports = useAppSelector(state => state.sports)
+  
   return (
   <div>
     <div className="bg-white rounded-lg shadow-lg overflow-hidden sm:max-w-xs lg:max-w-sm xl:max-w-md">
