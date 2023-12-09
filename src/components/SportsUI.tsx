@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
-import { store } from "src/store/configureStore";
-import { ContentRepository } from "src/api/ContentRepository";
+import { store } from "../store/configureStore";
+import { ContentRepository } from "../api/ContentRepository";
 import CardWrap from "./cardWrap";
 const contentRepo = new ContentRepository()
 

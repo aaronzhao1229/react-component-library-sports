@@ -1,4 +1,4 @@
-import { Sport } from "src/models/sports";
+import { Sport } from "../models/sports";
 
 export function sortSportArrayAZ(sports: Sport[]) {
   sports.sort((a, b) => a.name.localeCompare(b.name))

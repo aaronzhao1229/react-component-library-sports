@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from "react"
-import { useAppDispatch } from "src/store/configureStore"
+import { useAppDispatch } from "../hooks/hooks"
 import { fetchSportsAsync } from "./sportSlice"
 import { Card } from "./card"
 import LoadingComponent from "./LoadingComponent"

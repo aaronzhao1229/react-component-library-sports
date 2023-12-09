@@ -1,21 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { Sport } from "src/models/sports";
-import { ContentRepository } from "src/api/ContentRepository";
-import { sortSportArrayAZ, sortSportArrayZA } from "./utils";
+import { Sport, SportState } from "../models/sports";
+import { ContentRepository } from "../api/ContentRepository";
+import { sortSportArrayAZ, sortSportArrayZA } from "../utils/utils";
 
 
 const contentRepo = new ContentRepository()
 
-interface CardSportState {
-  orderBy: string
-  sports: Sport[]
-}
-const initialState: CardSportState = {
-  orderBy: '',
-  sports: [{name: '', description: ''}],
-  
-}
+
+const initialState: SportState = {
+  sports: [{name: '', description: ''}]
+  }
+
 
 export const fetchSportsAsync = createAsyncThunk<Sport[], string>(
   'fetchSportsAsync', 
@@ -40,7 +36,7 @@ export const sportSlice = createSlice({
   name: 'sports',
   initialState, 
   reducers: {setOrderByPram: (state, action) => {
-      state.orderBy = action.payload
+      
       if (action.payload === 'az') {
         sortSportArrayAZ(state.sports)
       } else if (action.payload === 'za') {

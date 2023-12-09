@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAppDispatch } from "src/store/configureStore";
+import { useAppDispatch } from "../hooks/hooks";
 import { setOrderByPram } from "./sportSlice";
 
 const options = [

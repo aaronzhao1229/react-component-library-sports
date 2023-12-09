@@ -1,4 +1,4 @@
-import { Sport } from "src/models/sports";
+import { Sport } from "../models/sports";
 
 export const sportList : Sport[] = [
   {name: 'Boxing', description: 'Boxing (also known as "western boxing" or "pugilism") is a combat sport and a martial art[1] in which two people, usually wearing protective gloves and other protective equipment such as hand wraps and mouthguards, throw punches at each other for a predetermined amount of time in a boxing ring.'}, 
