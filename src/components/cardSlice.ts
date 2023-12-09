@@ -3,10 +3,18 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Sport } from "src/models/sports";
 import { ContentRepository } from "src/api/ContentRepository";
 
+
 const contentRepo = new ContentRepository()
-const initialState: Sport[] = [
-  {name: '', description: ''}
-]
+
+interface CardSportState {
+  
+  sports: Sport[]
+}
+const initialState: CardSportState = {
+  sports: [{name: '', description: ''}],
+  
+}
+
 export const fetchSportsAsync = createAsyncThunk<Sport[]>(
   'fetchSportsAsync', 
   async (_, thunkAPI) => {
@@ -25,8 +33,9 @@ export const sportSlice = createSlice({
   reducers: {},
   extraReducers: (builder => {
     builder.addCase(fetchSportsAsync.fulfilled, (state, action) => {
+     
+      state.sports = action.payload
       
-      state = action.payload
     })
     builder.addCase(fetchSportsAsync.rejected, (state, action) => {
       console.log(action.payload)

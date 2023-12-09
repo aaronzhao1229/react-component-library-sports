@@ -3,21 +3,11 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import { sportSlice } from "src/components/cardSlice";
 
-
-
-
 export const store = configureStore({
     reducer: {
        sports: sportSlice.reducer
     },
-    // middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-    //   serializableCheck: {
-    //     serializableCheck: {
-    //       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    //     },
-    //   },
     })
-
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDistpatch = typeof store.dispatch;

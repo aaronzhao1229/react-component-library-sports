@@ -1,3 +1,5 @@
+
+import { sportList } from "./sportList";
 export class Sport {
   name: string;
   description: string;
@@ -8,18 +10,31 @@ export class Sport {
   }
 
   static createMockedSports(): Sport[] {
-    return [
-      new Sport(
-        "Cycling",
-        "Cycling, also called bicycling or biking, is the use of bicycles for transport, recreation, exercise or sport. People engaged in cycling are referred to as \"cyclists\", \"bicyclists\", or \"bikers\". Apart from two-wheeled bicycles, \"cycling\" also includes the riding of unicycles, tricycles, quadricycles, recumbent and similar human-powered vehicles (HPVs)."
-      ),
-      // ... other sports
-      new Sport(
-        "Volleyball",
-        "Volleyball is a team sport in which two teams of six players are separated by a net. Each team tries to score points by grounding a ball on the other team's court under organized rules."
-      ),
-    ];
+    const listLength = sportList.length
+    const randomNumbers = generateRandomNumbers(0, listLength -1, 3)
+    const result : Sport[] = []
+    randomNumbers.forEach(e => result.push(sportList[e]))
+    return result
   }
+}
+
+// generate random number function
+function generateRandomNumbers(min: number, max: number, count: number): number[] {
+  if (max - min + 1 < count) {
+    throw new Error("Range is too small to generate the specified count of random numbers");
+  }
+
+  const result: number[] = [];
+
+  while (result.length < count) {
+    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    if (!result.includes(randomNumber)) {
+      result.push(randomNumber);
+    }
+  }
+
+  return result;
 }
 
 // ContentRepository.js
