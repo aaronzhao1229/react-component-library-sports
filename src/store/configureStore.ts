@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
-import { sportSlice } from "src/components/cardSlice";
+import { sportSlice } from "../components/sportSlice";
 
 export const store = configureStore({
     reducer: {

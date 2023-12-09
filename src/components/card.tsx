@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ContentRepository } from "../api/ContentRepository";
 import { Sport } from "src/models/sports";
 import { useAppSelector } from "src/store/configureStore";
+import { sortSportArrayAZ } from "./utils";
 
 type CardProps = {
   title: string;
@@ -12,6 +13,7 @@ const initial : Sport[] = [{name: '', description: ''}]
 
 export const Card = ({ title, description }: CardProps) => {
   const sports = useAppSelector(state => state.sports)
+
   
   return (
   <div>

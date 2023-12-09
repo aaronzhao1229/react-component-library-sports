@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useAppDispatch } from "src/store/configureStore";
+import { setOrderByPram } from "./sportSlice";
 
 const options = [
   {value: '', text: 'Order by'},
@@ -6,11 +8,21 @@ const options = [
   {value: 'za', text: 'Z - A of name'},
 ]
 
-export default function Dropdown() {
-  const [selected, setSelected] = useState(options[0].value);
+interface Props {
+  orderBy: string
+  setOrderBy: (state: string) => void
+}
+
+export default function Dropdown({orderBy, setOrderBy}: Props) {
+  
+  const [selected, setSelected] = useState(orderBy);
+  const dispatch = useAppDispatch()
 
   function handleChange(event:any) {
       setSelected(event.target.value)
+      localStorage.setItem('orderBy', JSON.stringify(event.target.value))
+      setOrderBy(event.target.value)
+      dispatch(setOrderByPram(event.target.value))
   }
   
   return (
