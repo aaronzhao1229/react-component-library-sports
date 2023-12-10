@@ -22,7 +22,7 @@ Storybook, React, Tailwind, TypeScript, Redux
 
 ```
 import { SportsUI } from "react-component-library-sports";
-import "react-component-library/styles.css";
+import "react-component-library-sports/styles.css";
 
 function App() {
   return (
