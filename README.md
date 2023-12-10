@@ -20,6 +20,7 @@ Storybook, React, Tailwind, TypeScript, Redux
 
 # How to use the UI component
 
+```
 import { SportsUI } from "react-component-library-sports";
 import "react-component-library/styles.css";
 
@@ -32,3 +33,5 @@ function App() {
 }
 
 export default App;
+
+```
